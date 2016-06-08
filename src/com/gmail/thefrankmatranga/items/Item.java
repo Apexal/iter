@@ -1,3 +1,5 @@
+package com.gmail.thefrankmatranga.items;
+
 public class Item {
     private static int itemCount = 0;
     

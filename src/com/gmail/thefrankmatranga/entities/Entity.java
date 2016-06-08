@@ -1,4 +1,4 @@
-package entities;
+package com.gmail.thefrankmatranga.entities;
 
 public class Entity{
     

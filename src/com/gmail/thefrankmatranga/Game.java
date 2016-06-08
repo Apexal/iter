@@ -1,11 +1,15 @@
-import entities.*;
+package com.gmail.thefrankmatranga;
+
+import com.gmail.thefrankmatranga.entities.*;
+import com.gmail.thefrankmatranga.rooms.*;
+
 import java.util.Scanner;
 
 public class Game {
-    
     private Scanner userInput;
     private Player player;
     
+    private Room currentRoom;
     
     public Game() {
         userInput = new Scanner(System.in);
