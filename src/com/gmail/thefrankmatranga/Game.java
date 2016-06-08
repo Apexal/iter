@@ -9,6 +9,8 @@ public class Game {
     private Scanner userInput;
     private Player player;
     
+    private DialogManager;
+    
     private Room currentRoom;
     
     public Game() {
