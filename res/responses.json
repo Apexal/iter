@@ -1,0 +1,10 @@
+[
+    {
+        "id": "simple_yes",
+        "message": "Yes."
+    },
+    {
+        "id": "simple_no",
+        "message": "No."
+    }
+]

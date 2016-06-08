@@ -1,0 +1,25 @@
+[
+    {
+        "id": "start_message",
+        "message": "You wake up in the middle of the Quad, with no memory of how you got there. It is late at night. There is a slight breeze.",
+        "options": [
+            {
+              "message": "Go back to sleep.",
+              "action": "end_game"  
+            },
+            {
+                "message": "Check what you have on you.",
+                "action": "dialog check_inventory" 
+            }
+        ]
+    },
+    {
+        "id": "check_inventory",
+        "message": "You realize you have a backpack on. It is not yours. You check inside to find ____.",
+        "options": [
+            {
+                "message": "doot doot"
+            }
+        ]
+    }
+]
