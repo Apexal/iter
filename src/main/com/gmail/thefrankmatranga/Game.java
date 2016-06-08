@@ -13,21 +13,36 @@ public class Game {
     private DialogManager dialogManager;
     
     private Room currentRoom;
-    
+
+    private boolean running = true;
+
     public Game() {
         userInput = new Scanner(System.in);
-        System.out.println("What's your name?");
-        player = new Player(userInput.nextLine());
-        
+        System.out.print("Initializing game... ");
         dialogManager = new DialogManager();
+        System.out.println("Done.");
+
+        System.out.println("What is your name?");
+        String name = userInput.nextLine();
+
+        System.out.println("What do you desire from Regis?");
+        String desire = userInput.nextLine();
+        player = new Player(name, desire);
     }
-    
-    public Player getPlayer() {
-        return player;
+
+    public void loop() {
+        while(running) {
+            System.out.println("\n--------------");
+            dialogManager.printCurrentDialog();
+            System.out.print("> ");
+            dialogManager.handleOption(userInput.nextInt());
+        }
     }
     
     public static void main(String[] args) {
         Game game = new Game();
-        System.out.println(game.getPlayer());
+        game.loop();
+
+        System.out.println("Thanks for playing!");
     }
 }

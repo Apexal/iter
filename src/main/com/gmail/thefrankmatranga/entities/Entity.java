@@ -13,9 +13,9 @@ public class Entity{
     private boolean alive;
     
     public Entity(String name) {
-        this.name = name;
-        this.health = Entity.START_HEALTH;
-        this.description = "An unknown entity.";
+        setName(name);
+        setHealth(Entity.START_HEALTH);
+        setDescription("An unknown entity.");
         this.alive = true;
     }
     
