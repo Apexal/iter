@@ -41,11 +41,15 @@ public class Player {
         this.armor = newArmor;
     }
 
-    public void setDesire(String newDesire) {
-        desire = newDesire;
-    }
-
     public String toString() {
         return name + " (" + description + ") with __ health and __ armor.";
+    }
+
+    public String getDesire() {
+        return desire;
+    }
+
+    public void setDesire(String newDesire) {
+        desire = newDesire;
     }
 }

@@ -1,11 +1,7 @@
 {
   "start_message": {
-    "message": "You wake up in the middle of the Quad, with no memory of how you got there. It is late at night. There is a slight breeze.",
+    "message": "You wake up in the middle of the [LOCATION], with no memory of how you got there. It is late at night. There is a slight breeze.",
     "options": [
-      {
-        "message": "Go back to sleep.",
-        "action": "end_game"
-      },
       {
         "message": "Check what you have on you.",
         "action": "dialog check_inventory"
@@ -13,7 +9,7 @@
     ]
   },
   "check_inventory": {
-    "message": "You realize you have a backpack on. It is not yours. You check inside for [desire]. Definitely not there.",
+    "message": "You realize you have a backpack on. It is not yours. You check inside for [DESIRE]. Definitely not there.",
     "options": [
       {
         "message": "doot doot"

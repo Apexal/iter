@@ -12,7 +12,8 @@ import java.util.Scanner;
 
 public class Game {
     // Folder containing JSON files
-    private final String resourcePath = "/home/frank/Documents/iter/src/main/resources/";
+    //private final String resourcePath = "/home/frank/Documents/iter/src/main/resources/";
+    private final String resourcePath = getClass().getResource("/resources/").getPath();
 
     private Scanner userInput;
     private Player player;
@@ -32,7 +33,7 @@ public class Game {
         userInput = new Scanner(System.in);
         String name = userInput.nextLine();
 
-        System.out.println("What do you desire from Regis?");
+        System.out.println("What do you search for?");
         String desire = userInput.nextLine();
         player = new Player(name, desire);
     }
@@ -61,7 +62,7 @@ public class Game {
         JSONArray options = (JSONArray) current.get("options");
 
         // Prints out the dialogue line to start
-        System.out.println(message);
+        System.out.println(formatLine(message));
         Iterator<JSONObject> iterator = options.iterator();
         while (iterator.hasNext()) {
             JSONObject option = iterator.next();
@@ -70,13 +71,19 @@ public class Game {
             int choiceNumber = options.indexOf(option) + 1;
             String choiceMessage = (String) option.get("message");
 
-            System.out.println(choiceNumber + ") " + choiceMessage);
+            System.out.println(choiceNumber + ") " + formatLine(choiceMessage));
         }
+        System.out.println(options.size() + 1 + ") " + "Go back to sleep.");
     }
 
     public void handleOption(int choice) {
         JSONObject current = dialogManager.getCurrent();
         JSONArray options = (JSONArray) current.get("options");
+
+        if (choice == options.size() + 1) {
+            doAction("end_game", null);
+            return;
+        }
 
         JSONObject chosen = null;
 
@@ -105,7 +112,7 @@ public class Game {
                 // Get a subarray from parts to get the list of arguments
                 args = Arrays.copyOfRange(parts, 1, parts.length);
             }
-            System.out.println(args[0]);
+
             doAction(action, args);
         }
     }
@@ -152,5 +159,10 @@ public class Game {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public String formatLine(String in) {
+        //String out = in.replaceAll(" [DESIRE]", player.getDesire());
+        return in;
     }
 }
