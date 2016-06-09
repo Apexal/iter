@@ -1,7 +1,6 @@
 package com.gmail.thefrankmatranga;
 
 import com.gmail.thefrankmatranga.entities.*;
-import com.gmail.thefrankmatranga.rooms.*;
 import com.gmail.thefrankmatranga.dialog.*;
 
 import java.util.Scanner;
@@ -11,8 +10,6 @@ public class Game {
     private Player player;
     
     private DialogManager dialogManager;
-    
-    private Room currentRoom;
 
     private boolean running = true;
 

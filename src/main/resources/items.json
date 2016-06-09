@@ -1,1 +1,7 @@
-{}
+{
+  "locker_code": {
+    "name": "Locker Code",
+    "description": "A piece of paper with the numbers 13 03 05 written on it.",
+    "usable_on": []
+  }
+}

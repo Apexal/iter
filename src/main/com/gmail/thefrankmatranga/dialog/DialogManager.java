@@ -11,8 +11,8 @@ import java.util.Iterator;
 
 public class DialogManager {
     private JSONParser parser;
-    private JSONObject dialog;
 
+    private JSONObject narration;
     private String currentID = "start_message";
 
     private String dialogDirectory = "/home/frank/Documents/iter/src/main/resources/dialog/";
@@ -23,18 +23,18 @@ public class DialogManager {
         parser = new JSONParser();
 
         try {
-            dialog = (JSONObject) parser.parse(new FileReader(dialogDirectory + "narration.json"));
+            narration = (JSONObject) parser.parse(new FileReader(dialogDirectory + "narration.json"));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        System.out.print("Loaded " + dialog.size() + " dialog trees... ");
+        System.out.print("Loaded " + narration.size() + " dialog trees... ");
     }
 
     public JSONObject getDialogByID(String id) {
-        return (JSONObject)dialog.get(id);
+        return (JSONObject)narration.get(id);
     }
 
     public void printCurrentDialog() {
@@ -70,7 +70,15 @@ public class DialogManager {
         String[] action = ((String)chosen.get("action")).split(" ");
         switch (action[0]) {
             case "end_game":
+                System.out.println("You chose to end the adventure early. The End.");
                 System.exit(0);
+                break;
+            case "dialog":
+                if(action.length > 1){
+                    if(getDialogByID(action[1]) != null){
+                        currentID = action[1];
+                    }
+                }
                 break;
             default:
                 System.out.println("Big error with dialogue! What is " + action[0] + "?");

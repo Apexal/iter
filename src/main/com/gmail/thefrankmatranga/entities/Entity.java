@@ -1,7 +1,6 @@
 package com.gmail.thefrankmatranga.entities;
 
 public class Entity{
-    
     static final double START_HEALTH = 100;
     
     private String name;

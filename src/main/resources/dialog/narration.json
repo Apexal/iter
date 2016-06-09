@@ -8,7 +8,7 @@
       },
       {
         "message": "Check what you have on you.",
-        "action": "check_inventory"
+        "action": "dialog check_inventory"
       }
     ]
   },
