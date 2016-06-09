@@ -2,14 +2,11 @@ package com.gmail.thefrankmatranga.entities;
 
 import com.gmail.thefrankmatranga.items.InventoryManager;
 
-import java.util.ArrayList;
-
 public class Player {
-    private String desire;
-
     static final double START_HEALTH = 100.0;
     static final int START_ARMOR = 20;
-
+    private String desire;
+    // Allows these attributes to be changed during the game
     private String name;
     private String description;
 
@@ -25,7 +22,7 @@ public class Player {
         setHealth(Player.START_HEALTH);
         setArmor(Player.START_ARMOR);
         setDesire(desire);
-        setDescription("The player.");
+        setDescription("You");
     }
 
     public void setName(String newName) {

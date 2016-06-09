@@ -16,9 +16,10 @@ public class InventoryManager {
 
     private ArrayList<JSONObject> inventory;
 
-    public InventoryManager(String path){
+    public InventoryManager(String path) {
         JSONParser parser = new JSONParser();
 
+        // Try to load JSON file with all items in it
         try {
             itemList = (JSONObject) parser.parse(new FileReader(path + "items.json"));
         } catch (IOException e) {
@@ -28,18 +29,30 @@ public class InventoryManager {
             e.printStackTrace();
             return;
         }
-
         inventory = new ArrayList<JSONObject>();
 
         System.out.print("Loaded " + itemList.size() + " items... ");
     }
 
-    public JSONObject getItemByID(String id) {
+    /**
+     * Finds the item with the passed ID and if it exists returns it.
+     *
+     * @param itemID A String containing the id of the item to be returned.
+     * @return The JSONObject of the requested item.
+     */
+    public JSONObject getItemByID(String itemID) {
         return null;
     }
 
+    /**
+     * Finds the item with the passed ID and if it exists adds it to the inventory.
+     *
+     * @param itemID A String containing the id of the item to be added.
+     */
     public void addItem(String itemID) {
         JSONObject item = getItemByID(itemID);
-        if(item != null) { inventory.add(item); }
+        if (item != null) {
+            inventory.add(item);
+        }
     }
 }
