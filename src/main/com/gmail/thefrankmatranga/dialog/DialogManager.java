@@ -10,24 +10,20 @@ import java.net.URISyntaxException;
 import java.util.Iterator;
 
 public class DialogManager {
-    private JSONParser parser;
-
     private JSONObject narration;
     private String currentID = "start_message";
 
-    private String dialogDirectory = "/home/frank/Documents/iter/src/main/resources/dialog/";
-    
-    public DialogManager() {
-        System.out.print("Loading dialog... ");
-
-        parser = new JSONParser();
+    public DialogManager(String path) {
+        JSONParser parser = new JSONParser();
 
         try {
-            narration = (JSONObject) parser.parse(new FileReader(dialogDirectory + "narration.json"));
+            narration = (JSONObject) parser.parse(new FileReader(path + "dialog/narration.json"));
         } catch (IOException e) {
             e.printStackTrace();
+            return;
         } catch (ParseException e) {
             e.printStackTrace();
+            return;
         }
 
         System.out.print("Loaded " + narration.size() + " dialog trees... ");

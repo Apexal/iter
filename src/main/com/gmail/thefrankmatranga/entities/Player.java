@@ -1,5 +1,7 @@
 package com.gmail.thefrankmatranga.entities;
 
+import com.gmail.thefrankmatranga.items.InventoryManager;
+
 import java.util.ArrayList;
 
 public class Player {
@@ -16,7 +18,7 @@ public class Player {
 
     private boolean alive;
 
-    private ArrayList<String> inventoryIDs;
+    private InventoryManager inventory;
 
     public Player(String name, String desire) {
         setName(name);
@@ -24,8 +26,6 @@ public class Player {
         setArmor(Player.START_ARMOR);
         setDesire(desire);
         setDescription("The player.");
-
-        inventoryIDs = new ArrayList<String>();
     }
 
     public void setName(String newName) {

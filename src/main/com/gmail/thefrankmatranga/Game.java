@@ -2,6 +2,7 @@ package com.gmail.thefrankmatranga;
 
 import com.gmail.thefrankmatranga.entities.*;
 import com.gmail.thefrankmatranga.dialog.*;
+import com.gmail.thefrankmatranga.items.InventoryManager;
 
 import java.util.Scanner;
 
@@ -10,16 +11,20 @@ public class Game {
     private Player player;
     
     private DialogManager dialogManager;
+    private InventoryManager inventory;
 
     private boolean running = true;
 
+    private final String resourcePath = "/home/frank/Documents/iter/src/main/resources/";
+
     public Game() {
-        userInput = new Scanner(System.in);
         System.out.print("Initializing game... ");
-        dialogManager = new DialogManager();
+        dialogManager = new DialogManager(resourcePath);
+        inventory = new InventoryManager(resourcePath);
         System.out.println("Done.");
 
         System.out.println("What is your name?");
+        userInput = new Scanner(System.in);
         String name = userInput.nextLine();
 
         System.out.println("What do you desire from Regis?");
